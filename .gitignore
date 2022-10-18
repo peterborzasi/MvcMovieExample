@@ -348,3 +348,15 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+
+# Archives
+.7z
+/ApprovalFlowWebClient/ApprovalFlowWindowsService/ApprovalFlowWindowsService_TemporaryKey.pfx
+
+z-log*.txt
+log4net.host.*.config
+/ApprovalFlowWebClient/ApprovalFlowWebClient/wwwroot/Images/EmployeesImages/*
+!/ApprovalFlowWebClient/ApprovalFlowWebClient/wwwroot/Images/EmployeesImages/keep.txt
+/ApprovalFlowWebClient/ApprovalFlowWebClient/wwwroot/IPROffers/*
+!/ApprovalFlowWebClient/ApprovalFlowWebClient/wwwroot/IPROffers/keep.txt
