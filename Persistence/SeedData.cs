@@ -1,10 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain;
+using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using MvcMovie.Data;
-using System;
-using System.Linq;
 
-namespace MvcMovie.Models
+namespace Persistence
 {
     public static class SeedData
     {
@@ -14,13 +13,17 @@ namespace MvcMovie.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<MvcMovieContext>>()))
             {
+                context.Database.EnsureCreated();
+
+                var movieDbSet = context.Set<Movie>();
+
                 // Look for any movies.
-                if (context.Movie.Any())
+                if (movieDbSet.Any())
                 {
                     return;   // DB has been seeded
                 }
 
-                context.Movie.AddRange(
+                movieDbSet.AddRange(
                     new Movie
                     {
                         Title = "When Harry Met Sally",

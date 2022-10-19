@@ -1,7 +1,6 @@
+using Application;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using MvcMovie.Data;
-using MvcMovie.Models;
+using Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<MvcMovieContext>(options =>
@@ -9,6 +8,9 @@ builder.Services.AddDbContext<MvcMovieContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddGetaways();
+builder.Services.AddContexts();
 
 var app = builder.Build();
 

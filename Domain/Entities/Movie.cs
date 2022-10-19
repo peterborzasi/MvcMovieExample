@@ -1,13 +1,12 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Domain.Base;
+using Domain.Clients;
 
-namespace MvcMovie.Models
+namespace Domain.Entities
 {
-    public class Movie
+    public class Movie : Entity
     {
-        public int Id { get; set; }
-
         [StringLength(60, MinimumLength = 3)]
         [Required]
         public string? Title { get; set; }
@@ -30,5 +29,8 @@ namespace MvcMovie.Models
         [StringLength(5)]
         [Required]
         public string? Rating { get; set; }
+
+        public long? ClientId { get; set; }
+        public Client? Client { get; set; }
     }
 }
