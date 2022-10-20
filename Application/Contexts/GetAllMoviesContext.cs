@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using Domain.Getaways;
+﻿using Domain.Getaways;
 
-namespace Application;
+namespace Application.Contexts;
 
 public class GetAllMoviesContext
 {

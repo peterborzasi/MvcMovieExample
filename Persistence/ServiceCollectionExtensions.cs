@@ -15,6 +15,8 @@ namespace Persistence
         public static void AddGetaways(this IServiceCollection services)
         {
             services.AddScoped<IGetAllMoviesGetaway, GetAllMoviesGetaway>();
+            services.AddScoped<ICreateMovieGetaway, CreateMovieGetaway>();
+
         }
     }
 }

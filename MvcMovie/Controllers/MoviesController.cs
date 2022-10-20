@@ -1,4 +1,4 @@
-﻿using Application;
+﻿using Application.Contexts;
 using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -58,18 +58,18 @@ namespace MvcMovie.Controllers
 
         // POST: Movies/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // For more details, see http://go.microsoft.com/fwlink/linkId/3434.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
+        public async Task<IActionResult> Create([FromForm] CreateMovieRequest request, [FromServices] CreateMovieContext context)
         {
-            // if (ModelState.IsValid)
-            // {
-            //     _context.Add(movie);
-            //     await _context.SaveChangesAsync();
-            //     return RedirectToAction(nameof(Index));
-            // }
-            return View(movie);
+            if (ModelState.IsValid)
+            {
+                await context.Execute(request);
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(request);
         }
 
         // GET: Movies/Edit/5
