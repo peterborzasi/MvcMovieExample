@@ -15,6 +15,10 @@ namespace Persistence.Configurations
                 .HasColumnName("Id")
                 .IsRequired();
 
+            builder.Property(p => p.Title)
+                .HasColumnName("Title")
+                .IsRequired();
+
             builder.Property(p => p.ReleaseDate)
                 .HasColumnName("ReleaseDate");
 
