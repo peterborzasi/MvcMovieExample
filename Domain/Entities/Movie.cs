@@ -7,7 +7,7 @@ namespace Domain.Entities;
 
 public class Movie : Entity
 {
-    public string? Title { get; set; }
+    public string Title { get; set; }
 
     [Display(Name = "Release Date")]
     [DataType(DataType.Date)]
@@ -63,7 +63,7 @@ public class Movie : Entity
         return Result.Success(movie);
     }
 
-    public Result<Movie> Update(string title, DateTime releaseDate, decimal price, string? genre, string? rating)
+    public Result<Movie> Edit(string title, DateTime releaseDate, decimal price, string? genre, string? rating)
     {
         if (string.IsNullOrWhiteSpace(title))
         {

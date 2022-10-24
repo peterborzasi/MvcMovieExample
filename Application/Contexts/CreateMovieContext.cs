@@ -1,6 +1,4 @@
-﻿using Domain.Clients.ValueObjects;
-using Domain.Getaways;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Domain.Getaways;
 using Domain.Base;
 using Domain.Entities;
 

@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Domain.Getaways;
 
 namespace Persistence.Getaways;
 
-public class UpdateMovieGetaway
+public class EditMovieGetaway : IEditMovieGetaway
 {
     private readonly MvcMovieContext _context;
 
-    public UpdateMovieGetaway(MvcMovieContext context)
+    public EditMovieGetaway(MvcMovieContext context)
     {
         _context = context;
     }
 
-    public async Task<Movie?> GetMovieForUpdate(long movieId)
+    public async Task<Movie?> GetMovieForEdit(long movieId)
     {
         var movieDbSet = _context.Set<Movie>();
 
@@ -26,7 +21,7 @@ public class UpdateMovieGetaway
         return movie;
     }
 
-    public async Task Update(Movie movie)
+    public async Task Edit(Movie movie)
     {
         var movieDbSet = _context.Set<Movie>();
 
