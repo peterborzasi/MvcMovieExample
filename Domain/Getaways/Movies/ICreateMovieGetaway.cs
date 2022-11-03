@@ -1,6 +1,6 @@
 ﻿using Domain.Entities;
 
-namespace Domain.Getaways;
+namespace Domain.Getaways.Movies;
 
 public interface ICreateMovieGetaway
 {

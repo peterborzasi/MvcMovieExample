@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Clients;
+﻿using Domain.Entities.Clients;
 using Domain.Clients.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -24,12 +19,12 @@ namespace Persistence.Configurations
             {
                 name.Property(pp => pp.FirstName)
                     .HasColumnName("FirstName")
-                    .HasMaxLength(50)
+                    .HasMaxLength(20)
                     .IsRequired();
 
                 name.Property(pp => pp.LastName)
                     .HasColumnName("LastName")
-                    .HasMaxLength(50)
+                    .HasMaxLength(20)
                     .IsRequired();
             });
 
@@ -38,34 +33,36 @@ namespace Persistence.Configurations
                 .HasColumnName("Email")
                 .IsRequired();
 
-            builder.OwnsOne(p => p.Address, name =>
+            builder.OwnsOne(p => p.Address, address =>
             {
-                name.Property(pp => pp.Street)
+                address.Property(pp => pp.Street)
                     .HasColumnName("Street")
-                    .HasMaxLength(50)
+                    .HasMaxLength(20)
                     .IsRequired();
 
-                name.Property(pp => pp.Number)
+                address.Property(pp => pp.Number)
                     .HasColumnName("Number")
+                    .HasMaxLength(10)
                     .IsRequired();
 
-                name.Property(pp => pp.City)
+                address.Property(pp => pp.City)
                     .HasColumnName("City")
-                    .HasMaxLength(50)
+                    .HasMaxLength(20)
                     .IsRequired();
 
-                name.Property(pp => pp.County)
+                address.Property(pp => pp.County)
                     .HasColumnName("County")
-                    .HasMaxLength(50)
+                    .HasMaxLength(20)
                     .IsRequired();
 
-                name.Property(pp => pp.Postcode)
+                address.Property(pp => pp.Postcode)
                     .HasColumnName("Postcode")
+                    .HasMaxLength(10)
                     .IsRequired();
 
-                name.Property(pp => pp.Country)
+                address.Property(pp => pp.Country)
                     .HasColumnName("Country")
-                    .HasMaxLength(50)
+                    .HasMaxLength(20)
                     .IsRequired();
             });
         }

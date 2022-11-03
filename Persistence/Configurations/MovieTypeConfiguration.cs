@@ -34,7 +34,7 @@ namespace Persistence.Configurations
                 .IsRequired(false);
 
             builder.HasOne(p => p.Client)
-                .WithMany(p => p.Movies)
+                .WithMany(p => p.OwnedMovies)
                 .HasForeignKey(fk => fk.ClientId);
         }
     }

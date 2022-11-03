@@ -1,18 +1,18 @@
 ﻿using Domain.Entities;
-using Domain.Getaways;
+using Domain.Getaways.Movies;
 
-namespace Persistence.Getaways;
+namespace Persistence.Getaways.Movies;
 
-public class EditMovieGetaway : IEditMovieGetaway
+public class DeleteMovieGetaway : IDeleteMovieGetaway
 {
     private readonly MvcMovieContext _context;
 
-    public EditMovieGetaway(MvcMovieContext context)
+    public DeleteMovieGetaway(MvcMovieContext context)
     {
         _context = context;
     }
 
-    public async Task<Movie?> GetMovieForEdit(long movieId)
+    public async Task<Movie> GetMovieForDelete(long movieId)
     {
         var movieDbSet = _context.Set<Movie>();
 
@@ -21,11 +21,11 @@ public class EditMovieGetaway : IEditMovieGetaway
         return movie;
     }
 
-    public async Task Edit(Movie movie)
+    public async Task Delete(Movie movie)
     {
         var movieDbSet = _context.Set<Movie>();
 
-        movieDbSet.Update(movie);
+        movieDbSet.Remove(movie);
 
         await _context.SaveChangesAsync();
     }

@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics;
 using Domain.Base;
-using Domain.Clients;
+using Domain.Entities.Clients;
 
 namespace Domain.Entities;
 
@@ -82,6 +83,13 @@ public class Movie : Entity
         Price = price;
         Genre = genre;
         Rating = rating;
+
+        return Result.Success(this);
+    }
+
+    public Result<Movie> Delete(string title, DateTime releaseDate, decimal price, string? genre, string? rating)
+    {
+
 
         return Result.Success(this);
     }

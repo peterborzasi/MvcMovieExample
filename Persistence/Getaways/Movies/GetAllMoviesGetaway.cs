@@ -1,8 +1,8 @@
-﻿using Domain.Entities;
-using Domain.Getaways;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Domain.Entities;
+using Domain.Getaways.Movies;
 
-namespace Persistence.Getaways;
+namespace Persistence.Getaways.Movies;
 
 public class GetAllMoviesGetaway : IGetAllMoviesGetaway
 {

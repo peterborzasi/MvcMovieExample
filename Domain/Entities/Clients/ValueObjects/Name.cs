@@ -29,15 +29,15 @@ public class Name : ValueObject
         firstName = firstName.Trim();
         lastName = lastName.Trim();
 
-        if (firstName.Length > 50)
+        if (firstName.Length > 20)
         {
-            return Result.Failure<Name>("First name cannot be longer than 50 characters");
+            return Result.Failure<Name>("First name cannot be longer than 20 characters");
 
         }
 
-        if (lastName.Length > 50)
+        if (lastName.Length > 20)
         {
-            return Result.Failure<Name>("Last name cannot be longer than 50 characters");
+            return Result.Failure<Name>("Last name cannot be longer than 20 characters");
 
         }
 

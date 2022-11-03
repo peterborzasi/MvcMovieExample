@@ -1,6 +1,6 @@
-﻿using Domain.Getaways;
+﻿using Domain.Getaways.Movies;
 
-namespace Application.Contexts;
+namespace Application.Contexts.Movies;
 
 public class GetAllMoviesContext
 {
@@ -42,7 +42,7 @@ public class GetAllMoviesResponse
 public class MovieResponse
 {
     public long Id { get; set; }
-    public string? Title { get; set; }
+    public string Title { get; set; }
     public DateTime ReleaseDate { get; set; }
     public decimal Price { get; set; }
     public string? Genre { get; set; }

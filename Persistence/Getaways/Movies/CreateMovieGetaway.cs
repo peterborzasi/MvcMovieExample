@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
-using Domain.Getaways;
+using Domain.Getaways.Movies;
 
-namespace Persistence.Getaways;
+namespace Persistence.Getaways.Movies;
 
 public sealed class CreateMovieGetaway : ICreateMovieGetaway
 {

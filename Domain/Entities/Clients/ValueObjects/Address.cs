@@ -5,13 +5,13 @@ namespace Domain.Clients.ValueObjects;
 public class Address : ValueObject
 {
     public string Street { get; }
-    public int Number { get; }
+    public string Number { get; }
     public string City { get; }
     public string County { get; }
-    public int Postcode { get; }
+    public string Postcode { get; }
     public string Country { get; }
 
-    private Address(string street, int number, string city, string county, int postcode, string country)
+    private Address(string street, string number, string city, string county, string postcode, string country)
     {
         Street = street;
         Number = number;
@@ -21,17 +21,16 @@ public class Address : ValueObject
         Country = country;
     }
 
-    public static Result<Address> Create(string street, int number, string city, string county, int postcode, string country)
+    public static Result<Address> Create(string street, string number, string city, string county, string postcode, string country)
     {
         if (string.IsNullOrWhiteSpace(street))
         {
             return Result.Failure<Address>("Street name should not be empty.");
         }
 
-        if (number <= 0)
+        if (string.IsNullOrWhiteSpace(number))
         {
             return Result.Failure<Address>("Address number should not be empty.");
-
         }
 
         if (string.IsNullOrWhiteSpace(city))
@@ -39,30 +38,61 @@ public class Address : ValueObject
             return Result.Failure<Address>("City name should not be empty.");
         }
 
+        if (string.IsNullOrWhiteSpace(county))
+        {
+            return Result.Failure<Address>("County name should not be empty.");
+        }
+
+        if (string.IsNullOrWhiteSpace(postcode))
+        {
+            return Result.Failure<Address>("Postcode should not be empty.");
+        }
+
+        if (string.IsNullOrWhiteSpace(country))
+        {
+            return Result.Failure<Address>("Country name should not be empty.");
+        }
+
         street = street.Trim();
+        number = number.Trim();
         city = city.Trim();
+        county = county.Trim();
+        postcode = postcode.Trim();
+        country = country.Trim();
 
-        if (street.Length > 50)
+        if (street.Length > 20)
         {
-            return Result.Failure<Address>("Street name cannot be longer than 50 characters");
+            return Result.Failure<Address>("Street name cannot be longer than 20 characters");
 
         }
 
-        if (city.Length > 50)
+        if (number.Length > 10)
         {
-            return Result.Failure<Address>("City name cannot be longer than 50 characters");
+            return Result.Failure<Address>("Street name cannot be longer than 10 characters");
 
         }
 
-        if (county.Length > 50)
+        if (city.Length > 20)
         {
-            return Result.Failure<Address>("County name cannot be longer than 50 characters");
+            return Result.Failure<Address>("City name cannot be longer than 20 characters");
 
         }
 
-        if (country.Length > 50)
+        if (county.Length > 20)
         {
-            return Result.Failure<Address>("Country name cannot be longer than 50 characters");
+            return Result.Failure<Address>("County name cannot be longer than 20 characters");
+
+        }
+
+        if (postcode.Length > 10)
+        {
+            return Result.Failure<Address>("County name cannot be longer than 10 characters");
+
+        }
+
+        if (country.Length > 20)
+        {
+            return Result.Failure<Address>("Country name cannot be longer than 20 characters");
 
         }
 

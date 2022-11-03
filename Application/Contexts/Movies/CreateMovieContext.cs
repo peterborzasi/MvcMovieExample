@@ -1,8 +1,8 @@
-﻿using Domain.Getaways;
+﻿using Domain.Getaways.Movies;
 using Domain.Base;
 using Domain.Entities;
 
-namespace Application.Contexts;
+namespace Application.Contexts.Movies;
 
 public sealed class CreateMovieContext
 {
